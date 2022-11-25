@@ -11,6 +11,6 @@ jobs:
     - name: Install packages
       run: yarn install --frozen-lockfile
     - name: Run ESlint
-      run: yarn lint
+      run: npm run lint
     - name: Run Tests
       run: yarn test
