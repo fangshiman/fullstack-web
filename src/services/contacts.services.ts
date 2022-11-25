@@ -7,7 +7,7 @@ const getContacts = (model: typeof Contacts) => async () => {
         const result: Document[] = await model.find();
         return result ? result : [];
     } catch (err){
-        return false;
+        throw err;
     }
 }
 
@@ -22,7 +22,7 @@ const addContacts = (model: typeof Contacts) => async (req: Request) => {
         });
         return result;
     } catch (err){
-        return false;
+        throw err;
     }
 }
 

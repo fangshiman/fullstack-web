@@ -24,8 +24,8 @@ describe('Contacts model test', ()=>{
         })
     })
 
-    describe('add a contact', ()=>{
-        it('add a contact', async ()=>{
+    describe('adds a contact', ()=>{
+        it('adds a contact', async ()=>{
             const contact = new Contacts(DUMMY_PAYLOAD);
             const result = await contact.save();
             expect(result.firstname).toEqual(DUMMY_PAYLOAD.firstname);
