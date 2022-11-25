@@ -11,7 +11,7 @@
     "build": "tsc -p .",
     "client": "yarn --cwd client/ start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "test": "jest --forceExit",
     "test:watch": "jest --runInBand --detectOpenHandles --watchAll"
   },
