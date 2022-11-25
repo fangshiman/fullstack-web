@@ -26,22 +26,24 @@ describe('App test', ()=>{
         expect(app).toBeDefined();
     })
 
-    it('/contacts (GET) SUCCESS', ()=>{
+    test('/contacts (GET) SUCCESS', ()=>{
         return request(app)
             .get(`${API_VERSION}/contacts`)
             .expect(200);
     });
 
-    it('/contacts (POST) SUCCESS', async (done)=>{
+    test('/contacts (POST) SUCCESS', async ()=>{
         const result = await request(app)
             .post(`${API_VERSION}/contacts`)
             .set('Accept', 'application/json')
             .send(DUMMY_PAYLOAD);
 
         expect(result.status).toBe(201);
+
+        expect(result.body.success).toBe(true);
     });
 
-    it('400 (POST) - VALIDATION ERROR', async ()=>{
+    test('400 (POST) - VALIDATION ERROR', async ()=>{
         const payload = {
             firstname: DUMMY_PAYLOAD.firstname,
             lastname: DUMMY_PAYLOAD.lastname,
@@ -52,21 +54,23 @@ describe('App test', ()=>{
             .set('Accept', 'application/json')
             .send(payload);
         expect(result.status).toBe(400);
+
+        expect(result.body.success).toBe(false);
     });
 
-    it('404 (POST) - wrong endpoint', ()=>{
+    test('404 (POST) - wrong endpoint', ()=>{
         return request(app)
             .post(`${API_VERSION}/fail`)
             .expect(404);
     });
 
-    it('404 (POST) - wrong url', ()=>{
+    test('404 (POST) - wrong url', ()=>{
         return request(app)
             .post(`/fail`)
             .expect(404);
     });
 
-    it('404 (POST) - wrong version number', ()=>{
+    test('404 (POST) - wrong version number', ()=>{
         return request(app)
             .post(`/contacts`)
             .expect(404);

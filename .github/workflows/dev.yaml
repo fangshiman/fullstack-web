@@ -1,0 +1,17 @@
+name: Solid CI/CD
+on: [push]
+jobs:
+  eslint:
+    name: Run Automated Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Install packages
+        uses: npm ci
+      - name: Run ESlint
+        uses: npm run lint
+      - name: Run Tests
+        uses: npm run test
