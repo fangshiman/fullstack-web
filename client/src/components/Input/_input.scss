@@ -1,0 +1,42 @@
+.Input {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    max-width: 400px;
+    
+    & .view {
+        max-width: 400px;
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        align-self: center;
+        background-color: pink;
+    }
+    
+    & .field {
+        height: 45px;
+        max-width: 400px;
+        width: 95%;
+        border-radius: 4px;
+        margin-top: 11px;
+        margin-bottom: 0px;
+        background-color: #f1f1f1;
+        padding-left: 11px;
+    }
+
+    & .label {
+        font-size: 12px;
+        margin-bottom: 4px;
+        font-weight: bold;
+    }
+
+    & .error-text {
+        font-size: 9px;
+        color: red;
+        font-style: italic;
+        margin-top: 4px;
+        text-align: left;
+        align-self: flex-start;
+    }
+}
