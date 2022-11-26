@@ -20,7 +20,10 @@ const ContactForm = () => {
       email: '',
       message: '',
     },
-    onSubmit: async values => addContact(values),
+    onSubmit: async values => {
+      await addContact(values)
+      setLoading(false);
+    },
     validationSchema: contactSchema,
   });
   const update = useDebouncedCallback((key: string, val: string) => {
@@ -35,10 +38,9 @@ const ContactForm = () => {
     formik.handleChange(key)(val);
     update(key, val);
   };
-  const onSubmit = async () => {
+  const onSubmit = () => {
     setLoading(true);
-    await formik.handleSubmit();
-    setLoading(false);
+    formik.handleSubmit();
   };
   return (
     <div className="Contact">

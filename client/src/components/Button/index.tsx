@@ -12,7 +12,7 @@ interface ButtonProps {
 const Button = ({ text, loading, onClick }: ButtonProps) => {
   return (
     <button type='button' className='Button' onClick={onClick}>
-      {loading ? <MoonLoader color="#36d7b7" /> : text}
+      {loading ? <MoonLoader color="#FFF" size={20} /> : text}
     </button>
   )
 }
