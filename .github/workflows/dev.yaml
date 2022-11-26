@@ -1,4 +1,4 @@
-name: Solid CI/CD
+name: Node CI/CD
 on: [push]
 jobs:
   release:
